@@ -1,23 +1,30 @@
 "use strict"
+const account = require("./account")
 
 function getBalance(){
-    break;
+    account.balance
 }
 
 function withdraw(){
-    break;
+
 }
 
 function deposit(){
-    break;
+
 }
 
 function validatePin(){
-    break;
+    console.log("this is where we validdate our pin")
+    account.pin
 }
+
+function mainMenu(){
+}
+
 
 //exports
 module.exports.getBalance = getBalance;
 module.exports.withdraw = withdraw;
 module.exports.deposit = deposit;
 module.exports.validatePin = validatePin;
+module.exports.mainMenu = mainMenu;
