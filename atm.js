@@ -19,7 +19,14 @@ function withdraw(){
 }
 
 function deposit(){
-
+    let depositAmount = parseInt(prompt("How much would you like to deposit?\t"));
+    if (isNaN(depositAmount)){
+        console.log("Please enter a valid amount")
+    }
+    else{
+        account.balance = account.balance + depositAmount
+        console.log(`You have deposited $${depositAmount}. Your new balance is $${account.balance}`)
+    }
 }
 
 function validatePin(){

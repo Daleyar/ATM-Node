@@ -12,12 +12,11 @@ function mainMenu (){
             mainMenu()
         case 2:
             atm.withdraw()
-            break;
+            mainMenu()
         case 3:
             atm.deposit()
-            break;
+            mainMenu()
         case 4:
-            console.log("Have a nice day! =)")
             break;
         default:
             console.log("Please select a valid option.")
