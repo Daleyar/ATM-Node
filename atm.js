@@ -1,8 +1,9 @@
 "use strict"
 const account = require("./account")
+const prompt = require("prompt-sync")();
 
 function getBalance(){
-    account.balance
+    console.log(`Your current balance is $${account.balance}.`)
 }
 
 function withdraw(){
@@ -14,17 +15,18 @@ function deposit(){
 }
 
 function validatePin(){
-    console.log("this is where we validdate our pin")
-    account.pin
+    let userPin = parseInt(prompt("Enter Your Pin\t"));
+    if(userPin === account.pin){
+        console.log("Pin Entered Correctly");
+    }
+    else{
+        console.log("Incorrect Pin. Try Again");
+        validatePin()
+    }
 }
-
-function mainMenu(){
-}
-
 
 //exports
 module.exports.getBalance = getBalance;
 module.exports.withdraw = withdraw;
 module.exports.deposit = deposit;
 module.exports.validatePin = validatePin;
-module.exports.mainMenu = mainMenu;
