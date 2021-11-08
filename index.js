@@ -17,9 +17,11 @@ function mainMenu (){
             atm.deposit()
             break;
         case 4:
+            console.log("Have a nice day! =)")
             break;
         default:
-            console.log("default")
+            console.log("Please select a valid option.")
+            mainMenu()
     }
 }
 

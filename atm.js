@@ -7,7 +7,15 @@ function getBalance(){
 }
 
 function withdraw(){
-
+    let withdrawAmount = parseInt(prompt("How much would you like to withdraw?\t"));
+    if (withdrawAmount <= account.balance){
+        account.balance = account.balance - withdrawAmount
+        console.log(`You have withdrew $${withdrawAmount}. Your new balance is $${account.balance}`)
+    }
+    else{
+        console.log(`Insufficent funds. Please Try Again`)
+        withdraw()
+    }
 }
 
 function deposit(){
