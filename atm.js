@@ -1,31 +1,35 @@
 "use strict"
-const account = require("./account")
+const account = require("./account");
+const wallet = require("./wallet");
 const prompt = require("prompt-sync")();
 
 function getBalance(){
-    console.log(`Your current balance is $${account.balance}.`)
+    console.log(`Your current balance is $${account.balance}.`);
 }
 
 function withdraw(){
     let withdrawAmount = parseInt(prompt("How much would you like to withdraw?\t"));
     if (withdrawAmount <= account.balance){
-        account.balance = account.balance - withdrawAmount
-        console.log(`You have withdrew $${withdrawAmount}. Your new balance is $${account.balance}`)
+        account.balance = account.balance - withdrawAmount;
+        wallet.amount = wallet.amount + withdrawAmount;
+        console.log(`You have withdrew $${withdrawAmount}. Your new balance is $${account.balance}`);
     }
     else{
-        console.log(`Insufficent funds. Please Try Again`)
-        withdraw()
+        console.log(`Insufficent funds. Please Try Again`);
+        withdraw();
     }
 }
 
 function deposit(){
     let depositAmount = parseInt(prompt("How much would you like to deposit?\t"));
-    if (isNaN(depositAmount)){
-        console.log("Please enter a valid amount")
+    if (depositAmount <= wallet.amount ){
+        account.balance = account.balance + depositAmount;
+        wallet.amount = wallet.amount - depositAmount;
+        console.log(`You have deposited $${depositAmount}. Your new balance is $${account.balance}`);
     }
     else{
-        account.balance = account.balance + depositAmount
-        console.log(`You have deposited $${depositAmount}. Your new balance is $${account.balance}`)
+        console.log("Please enter a valid amount");
+        deposit();
     }
 }
 
